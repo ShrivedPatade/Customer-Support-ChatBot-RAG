@@ -1,6 +1,7 @@
 from preprocess import tokenize, bag_of_words, lemmatize
 import numpy as np
 import json
+import pandas as pd
 
 with open("chatbot/intents.json", "r") as file:
     intents = json.load(file)
@@ -38,4 +39,7 @@ y = np.array(y)
 print(f"Vocab: {vocab}")
 print(f"Tags: {tags}")
 
+df = pd.DataFrame(X, y)
+print(X)
+print(y)
 # setting up the model, most probably a neural network

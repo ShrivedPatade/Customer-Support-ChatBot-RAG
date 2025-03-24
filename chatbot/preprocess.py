@@ -10,12 +10,11 @@ def lemmatize(tokens):
     '''Lemmatize the tokens to their base form'''
     return [token.lemma_ for token in tokens]
 
-def bag_of_words(tokenized_sentence, words):
+def bag_of_words(lemmatized_tokenized_sentence, words):
     '''Create a bag of words from the tokens'''
     bag = np.zeros(len(words), dtype=np.float32)
-    lemmatized_sentence = lemmatize(tokenized_sentence)
     for idx, word in enumerate(words):
-        if word in lemmatized_sentence:
+        if word in lemmatized_tokenized_sentence:
             bag[idx] = 1.0
     return bag
 
